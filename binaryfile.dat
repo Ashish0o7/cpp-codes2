@@ -1,0 +1,57 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+struct student
+{
+int rollno;
+string name;
+};
+
+int main()
+{
+fstream fst;
+
+fst.open("stud.dat", ios::out | ios::binary);
+
+if(fst)
+{
+struct student s1;
+s1.rollno = 33;
+s1.name = "shailesh";
+
+struct student s2;
+s2.rollno = 34;
+s2.name = "vaibhav";
+
+fst.write( (char *)&s1 , sizeof(s1));
+fst.write( (char *)&s2 , sizeof(s2));
+
+cout<<"student records saved successfully"<<endl;
+
+fst.close();
+}
+else
+cout<<"file writing failed"<<endl;
+
+fst.open("stud.dat",ios::in | ios::binary);
+
+if(fst)
+{
+struct student temp;
+
+cout<<"records read from file are : "<<endl;
+
+while( fst.read((char *)&temp , sizeof(temp)) )
+{
+cout<<"Rollno : "<<temp.rollno<<" , Name : "<<temp.name<<endl;
+}
+
+fst.close();
+}
+else
+cout<<"file reading failed"<<endl;
+
+return 0;
+}
