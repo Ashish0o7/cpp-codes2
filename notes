@@ -1,0 +1,25 @@
+Function Overloading :- (Compile Time Polymorphism)
+
+In C++ , in a class we can write multiple functions with the same name provided
+any 1 of the following 3 rules is followed :-
+
+1) functions should differ in number of arguments
+
+2) functions should differ in type of arguments
+
+3) functions should differ in sequence of arguments
+
+1) function instructions are copied onto main memory
+2) all the parameters of function are loaded into stack
+3) point of execution is transferred from calling function to the called function
+4) code of function will be executed
+5) point of execution will return to the calling function
+*/
+
+
+limitation of inline functions :
+
+1) if function contains lots of code , compiler will ignore the keyword inline
+2) function should not contain any loop
+3) function should not contain static variable
+4) function should not be recursive
